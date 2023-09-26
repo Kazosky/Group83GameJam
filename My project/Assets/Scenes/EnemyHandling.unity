@@ -362,6 +362,8 @@ MonoBehaviour:
   Enemy: {fileID: 0}
   Player: {fileID: 0}
   enemySpeed: 0
+  speed: 5
+  maxForce: 50
 --- !u!212 &1413630213
 SpriteRenderer:
   m_ObjectHideFlags: 0
