@@ -27,6 +27,7 @@ public class CharacterController : MonoBehaviour
             Vector2 projectilePosition = transform.position + fireDirection * 1;
             GameObject projectile = Instantiate(projectilePrefab, projectilePosition, Quaternion.identity);
             projectile.GetComponent<Rigidbody2D>().AddForce(fireDirection * 1000);
+            projectile.GetComponent<SpringJoint2D>().connectedBody = rigidbody;
         }
     }
 
