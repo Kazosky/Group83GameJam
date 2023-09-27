@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     public GameObject player;
     public float onHitDamage = 10;
+    public float damagePerSecond = 10;
     public float pullDistance = 7;
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,9 @@ public class Projectile : MonoBehaviour
             springLimiter.minDistance = pullDistance;
             springLimiter.spring = spring;
             springLimiter.preAttachVelocity = enemy.GetComponent<Rigidbody2D>().velocity;
+
+            HealthChangeOverTime healthChangeOverTime = enemy.AddComponent<HealthChangeOverTime>();
+            healthChangeOverTime.healthChangePerSecond = -damagePerSecond;
 
             Destroy(this.gameObject);
         }
