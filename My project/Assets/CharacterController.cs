@@ -11,6 +11,7 @@ public class CharacterController : MonoBehaviour
     public float speed = 20f;
     public float maxForce = 20f;
     public GameObject projectilePrefab;
+    public float fireForce = 2000;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +27,8 @@ public class CharacterController : MonoBehaviour
             Vector3 fireDirection = ((Vector3)mousePosition - transform.position).normalized;
             Vector2 projectilePosition = transform.position + fireDirection * 1;
             GameObject projectile = Instantiate(projectilePrefab, projectilePosition, Quaternion.identity);
-            projectile.GetComponent<Rigidbody2D>().AddForce(fireDirection * 1000);
+            projectile.GetComponent<Projectile>().player = this.gameObject;
+            projectile.GetComponent<Rigidbody2D>().AddForce(fireDirection * fireForce);
             projectile.GetComponent<SpringJoint2D>().connectedBody = rigidbody;
         }
     }
