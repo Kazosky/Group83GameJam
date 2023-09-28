@@ -26,6 +26,11 @@ public class NewBehaviourScript : MonoBehaviour
 
     void Update()
     {
+        LineRenderer lineRenderer = GetComponent<LineRenderer>();
+        if (lineRenderer != null)
+        {
+            lineRenderer.SetPositions(new Vector3[] { this.transform.position + Vector3.back, Player.transform.position + Vector3.back });
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
