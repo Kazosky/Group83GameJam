@@ -18,7 +18,7 @@ public class CameraTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position = Vector3.Lerp(this.transform.position, target.transform.position + Vector3.back * 10f, Time.deltaTime);
+        this.transform.position = Vector3.Lerp(this.transform.position, target.transform.position + Vector3.back * 10f, Time.deltaTime * 10f);
         if(camera.ViewportToWorldPoint(Vector3.zero).x < bounds.position.x)
         {
             this.transform.position -= Vector3.right * (camera.ViewportToWorldPoint(Vector3.zero).x - bounds.position.x);
