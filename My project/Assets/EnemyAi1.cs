@@ -36,6 +36,14 @@ public class NewBehaviourScript : MonoBehaviour
         }
     }
 
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collidedwPlayer = false;
+        }
+    }
+
     private void FixedUpdate()
     {
         range = Vector2.Distance(Enemy.transform.position, Player.transform.position);
