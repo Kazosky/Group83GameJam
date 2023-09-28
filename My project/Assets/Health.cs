@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class Health : MonoBehaviour
         if(health <= 0f)
         {
             Destroy(this.gameObject);
+            if(this.gameObject.tag == "Player")
+            {
+                SceneManager.LoadScene("Menu");
+            }
         }
         else if (health > maxHealth)
         {

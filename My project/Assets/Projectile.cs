@@ -8,16 +8,21 @@ public class Projectile : MonoBehaviour
     public float onHitDamage = 10;
     public float damagePerSecond = 10;
     public float pullDistance = 7;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        LineRenderer lineRenderer = GetComponent<LineRenderer>();
+        if (lineRenderer != null)
+        {
+            lineRenderer.SetPositions(new Vector3[] { this.transform.position + Vector3.back, player.transform.position + Vector3.back });
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -46,6 +51,10 @@ public class Projectile : MonoBehaviour
             healthChangeOverTime.healthChangePerSecond = -damagePerSecond;
 
             enemy.GetComponent<Rigidbody2D>().AddForce(this.GetComponent<Rigidbody2D>().velocity * this.GetComponent<Rigidbody2D>().mass, ForceMode2D.Impulse);
+
+            LineRenderer line = enemy.AddComponent<LineRenderer>();
+            line.SetWidth(0.2f, 0.2f);
+            line.material = GetComponent<LineRenderer>().material;
 
             Destroy(this.gameObject);
         }
