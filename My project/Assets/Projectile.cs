@@ -34,6 +34,7 @@ public class Projectile : MonoBehaviour
             spring.connectedBody = player.GetComponent<Rigidbody2D>();
             spring.autoConfigureDistance = false;
             spring.distance = pullDistance;
+            spring.frequency = 3f;
             spring.enabled = false;
 
             SpringLimiter springLimiter = enemy.AddComponent<SpringLimiter>();
