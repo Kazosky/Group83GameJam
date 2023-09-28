@@ -218,7 +218,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   onHitDamage: 10
-  pullDistance: 7
+  damagePerSecond: 10
+  pullDistance: 4
 --- !u!114 &2913740988601498672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,3 +235,4 @@ MonoBehaviour:
   spring: {fileID: 0}
   minDistance: 0
   maxDistance: Infinity
+  preAttachVelocity: {x: 0, y: 0}

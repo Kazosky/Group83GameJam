@@ -3050,7 +3050,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 50
+  m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -3163,8 +3163,9 @@ MonoBehaviour:
   Enemy: {fileID: 0}
   Player: {fileID: 0}
   speed: 20
-  maxForce: 1000
+  maxForce: 100
   collidedwPlayer: 0
+  damagePerSecond: 10
 --- !u!1 &1127323144
 GameObject:
   m_ObjectHideFlags: 0
@@ -5047,6 +5048,10 @@ PrefabInstance:
     - target: {fileID: 7772043858694451783, guid: 15af875614fcc1743b5236b02bb5269a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127993345365292810, guid: 15af875614fcc1743b5236b02bb5269a, type: 3}
+      propertyPath: speed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8127993345365292810, guid: 15af875614fcc1743b5236b02bb5269a, type: 3}
       propertyPath: projectile
