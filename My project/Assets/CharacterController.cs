@@ -14,6 +14,10 @@ public class CharacterController : MonoBehaviour
     public float fireForce = 2000;
     public float fireCooldown = 0.2f;
     float currentFireCooldown = 0;
+
+    public GameObject character;
+    bool facing = false; // False left, true right
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +38,19 @@ public class CharacterController : MonoBehaviour
             projectile.GetComponent<Rigidbody2D>().AddForce(fireDirection * fireForce);
             projectile.GetComponent<SpringJoint2D>().connectedBody = rigidbody;
             currentFireCooldown = fireCooldown;
+        }
+
+        if (Input.GetKeyDown(KeyCode.D) && !facing)
+        {
+            // If the "D" key is pressed and the facing variable is false (facing left)
+            character.transform.localRotation = Quaternion.Euler(0, 180, 0);
+            facing = !facing;
+
+        } else if (Input.GetKeyDown(KeyCode.A) && facing)
+        {
+            // If the "E" key is pressed and the facing variable is true (facing right)
+            character.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            facing = !facing;
         }
     }
 
