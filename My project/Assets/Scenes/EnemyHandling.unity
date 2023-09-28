@@ -388,6 +388,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   maxForce: 20
+  projectilePrefab: {fileID: 0}
+  fireForce: 2000
+  fireCooldown: 0.2
 --- !u!1 &1413630211 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5088419309684017923, guid: da443887cb3362945b6594d6d27ca9b4, type: 3}
