@@ -13,8 +13,6 @@ public class NewBehaviourScript : MonoBehaviour
     private Vector2 targetVelocity = Vector2.zero;
     public float speed = 20f;
     public float maxForce = 20f;
-    public float enemyMaxHealth = 10f;
-    public float enemyCurrentHealth;
     public bool collidedwPlayer;
 
     void Start()
@@ -22,7 +20,6 @@ public class NewBehaviourScript : MonoBehaviour
         Enemy = GameObject.FindGameObjectWithTag("Enemy");
         Player = GameObject.FindGameObjectWithTag("Player");
         rigidbody = GetComponent<Rigidbody2D>();
-        enemyCurrentHealth = enemyMaxHealth;
         collidedwPlayer = false;
     }
 
@@ -53,19 +50,6 @@ public class NewBehaviourScript : MonoBehaviour
         } else if (range < 10f)
         {
             speed = 4f;
-        }
-
-        if (collidedwPlayer)
-        {
-            enemyCurrentHealth -= 1f;
-        }
-
-        if (enemyCurrentHealth <= 0f)
-        {
-            Destroy(this.gameObject);
-        }
-
-
-       
+        }   
     }
 }

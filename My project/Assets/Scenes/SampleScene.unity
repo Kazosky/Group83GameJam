@@ -2970,6 +2970,8 @@ GameObject:
   - component: {fileID: 1114590150}
   - component: {fileID: 1114590149}
   - component: {fileID: 1114590148}
+  - component: {fileID: 1114590153}
+  - component: {fileID: 1114590154}
   m_Layer: 0
   m_Name: Dummy
   m_TagString: Enemy
@@ -3131,6 +3133,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1114590153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114590147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fec5dcc07073b84fada1a23b7013a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePerSpeed: 10
+  minimumDamage: 10
+--- !u!114 &1114590154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114590147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ccab2b608af56641a1a5583206a8391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 0}
+  Enemy: {fileID: 0}
+  Player: {fileID: 0}
+  speed: 20
+  maxForce: 1000
+  collidedwPlayer: 0
 --- !u!1 &1127323144
 GameObject:
   m_ObjectHideFlags: 0
