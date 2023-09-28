@@ -12,6 +12,8 @@ public class CharacterController : MonoBehaviour
     public float maxForce = 20f;
     public GameObject projectilePrefab;
     public float fireForce = 2000;
+    public float fireCooldown = 0.2f;
+    float currentFireCooldown = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,8 @@ public class CharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !PauseMenu.GameIsPaused)
+        currentFireCooldown -= Time.deltaTime;
+        if (Input.GetMouseButtonDown(0) && !PauseMenu.GameIsPaused && currentFireCooldown < 0f)
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 fireDirection = ((Vector3)mousePosition - transform.position).normalized;
@@ -30,6 +33,7 @@ public class CharacterController : MonoBehaviour
             projectile.GetComponent<Projectile>().player = this.gameObject;
             projectile.GetComponent<Rigidbody2D>().AddForce(fireDirection * fireForce);
             projectile.GetComponent<SpringJoint2D>().connectedBody = rigidbody;
+            currentFireCooldown = fireCooldown;
         }
     }
 
