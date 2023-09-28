@@ -36,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 243365967073714832}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &980876898830591995
 SpriteRenderer:
@@ -163,7 +163,7 @@ MonoBehaviour:
   speed: 20
   maxForce: 40
   collidedwPlayer: 0
-  damagePerSecond: 10
+  damagePerSecond: 25
 --- !u!58 &1104284790974352486
 CircleCollider2D:
   m_ObjectHideFlags: 0
