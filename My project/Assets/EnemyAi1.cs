@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class NewBehaviourScript : MonoBehaviour
 {
@@ -55,6 +56,17 @@ public class NewBehaviourScript : MonoBehaviour
         targetVelocity = (Player.transform.position - transform.position).normalized * speed;
         Vector2 appliedImpulse = Vector2.ClampMagnitude((targetVelocity - rigidbody.velocity) * rigidbody.mass, maxForce * Time.fixedDeltaTime);
         rigidbody.AddForce(appliedImpulse, ForceMode2D.Impulse);
+
+        Debug.Log(targetVelocity[0]);
+
+        if (targetVelocity[0] > 0)
+        {
+            Enemy.transform.localRotation = Quaternion.Euler(0, 180, 0);
+        } else
+        {
+            Enemy.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+
 
         
 
