@@ -26,7 +26,7 @@ public class Projectile : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        else if (collision.gameObject.tag == "Enemy")
+        else if (collision.gameObject.tag == "Enemy" && collision.gameObject.GetComponent<SpringJoint2D>() == null) // second part checks if the enemy has already been hit
         {
             GameObject enemy = collision.gameObject;
             enemy.GetComponent<Health>().ChangeHealth(-onHitDamage);
