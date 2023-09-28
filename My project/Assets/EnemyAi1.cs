@@ -57,8 +57,6 @@ public class NewBehaviourScript : MonoBehaviour
         Vector2 appliedImpulse = Vector2.ClampMagnitude((targetVelocity - rigidbody.velocity) * rigidbody.mass, maxForce * Time.fixedDeltaTime);
         rigidbody.AddForce(appliedImpulse, ForceMode2D.Impulse);
 
-        Debug.Log(targetVelocity[0]);
-
         if (targetVelocity[0] > 0)
         {
             Enemy.transform.localRotation = Quaternion.Euler(0, 180, 0);

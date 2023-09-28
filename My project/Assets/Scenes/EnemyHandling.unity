@@ -391,6 +391,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 0}
   fireForce: 2000
   fireCooldown: 0.2
+  character: {fileID: 0}
 --- !u!1 &1413630211 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5088419309684017923, guid: da443887cb3362945b6594d6d27ca9b4, type: 3}
@@ -491,6 +492,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1863145630750345552, guid: da443887cb3362945b6594d6d27ca9b4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3240564061529182107, guid: da443887cb3362945b6594d6d27ca9b4, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5088419309684017923, guid: da443887cb3362945b6594d6d27ca9b4, type: 3}

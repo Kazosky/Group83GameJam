@@ -44,6 +44,15 @@ public class FastEnemyAi : MonoBehaviour
         Vector2 appliedImpulse = Vector2.ClampMagnitude((targetVelocity - rigidbody.velocity) * rigidbody.mass, maxForce * Time.fixedDeltaTime);
         rigidbody.AddForce(appliedImpulse, ForceMode2D.Impulse);
 
+        if (targetVelocity[0] > 0)
+        {
+            Enemy.transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            Enemy.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+
 
 
         if (range >= 20f)
