@@ -33,6 +33,7 @@ public class Projectile : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Enemy" && collision.gameObject.GetComponent<SpringJoint2D>() == null) // second part checks if the enemy has already been hit
         {
+
             GameObject enemy = collision.gameObject;
             enemy.GetComponent<Health>().ChangeHealth(-onHitDamage);
             SpringJoint2D spring = enemy.AddComponent<SpringJoint2D>();

@@ -65,10 +65,14 @@ public class PauseMenu : MonoBehaviour
 
             // Checks if the wave text is not active and the upgrades menu isn't active,
             // if conditions are met it sets the waves to visable.
-            if (!waveText.IsActive() && !upgradesMenuUI.activeSelf)
+            if (!waveText.IsActive())
             {
-                ShowWaves();
+                if (!upgradesMenuUI.activeSelf)
+                {
+                    ShowWaves();
+                }
             }
+
         }
     }
 
@@ -128,19 +132,6 @@ public class PauseMenu : MonoBehaviour
 
         waveText.enabled = false;
     }
-
-    public void WaveCounterUpdate()
-    {
-        // Update the wave counter +1 each time called
-
-
-        int currentWaveNumber;
-        // Gets the last 2 digits of the wave to reduce the amount of selection required.
-        int.TryParse(waveText.text.Substring(waveText.text.Length - 2).ToString(), out currentWaveNumber);
-
-        waveText.text = "WAVE: "+((currentWaveNumber+1).ToString());
-    }
-
 
     // upgrades \\
 

@@ -8,7 +8,7 @@ public class FastEnemyAi : MonoBehaviour
     public GameObject Enemy;
     public GameObject Player;
     private float range;
-    private Rigidbody2D rigidbody;
+    private Rigidbody2D rigidbod;
     private Vector2 targetVelocity = Vector2.zero;
     public float speed = 20f;
     public float maxForce = 20f;
@@ -20,7 +20,7 @@ public class FastEnemyAi : MonoBehaviour
     {
         Enemy = GameObject.FindGameObjectWithTag("Enemy");
         Player = GameObject.FindGameObjectWithTag("Player");
-        rigidbody = GetComponent<Rigidbody2D>();
+        rigidbod = GetComponent<Rigidbody2D>();
         enemyCurrentHealth = enemyMaxHealth;
         collidedwPlayer = false;
     }
@@ -41,8 +41,8 @@ public class FastEnemyAi : MonoBehaviour
     {
         range = Vector2.Distance(Enemy.transform.position, Player.transform.position);
         targetVelocity = (Player.transform.position - transform.position).normalized * speed;
-        Vector2 appliedImpulse = Vector2.ClampMagnitude((targetVelocity - rigidbody.velocity) * rigidbody.mass, maxForce * Time.fixedDeltaTime);
-        rigidbody.AddForce(appliedImpulse, ForceMode2D.Impulse);
+        Vector2 appliedImpulse = Vector2.ClampMagnitude((targetVelocity - rigidbod.velocity) * rigidbod.mass, maxForce * Time.fixedDeltaTime);
+        rigidbod.AddForce(appliedImpulse, ForceMode2D.Impulse);
 
         if (targetVelocity[0] > 0)
         {

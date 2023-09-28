@@ -52,33 +52,43 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        range = Vector2.Distance(Enemy.transform.position, Player.transform.position);
-        targetVelocity = (Player.transform.position - transform.position).normalized * speed;
-        Vector2 appliedImpulse = Vector2.ClampMagnitude((targetVelocity - rigidbody.velocity) * rigidbody.mass, maxForce * Time.fixedDeltaTime);
-        rigidbody.AddForce(appliedImpulse, ForceMode2D.Impulse);
-
-        if (targetVelocity[0] > 0)
+        try
         {
-            Enemy.transform.localRotation = Quaternion.Euler(0, 180, 0);
-        } else
-        {
-            Enemy.transform.localRotation = Quaternion.Euler(0, 0, 0);
-        }
 
 
-        
+            range = Vector2.Distance(Enemy.transform.position, Player.transform.position);
+            targetVelocity = (Player.transform.position - transform.position).normalized * speed;
+            Vector2 appliedImpulse = Vector2.ClampMagnitude((targetVelocity - rigidbody.velocity) * rigidbody.mass, maxForce * Time.fixedDeltaTime);
+            rigidbody.AddForce(appliedImpulse, ForceMode2D.Impulse);
 
-        if (range >= 10f)
-        {
-            speed = 10f;
-        } else if (range < 10f)
-        {
-            speed = 4f;
-        }   
+            if (targetVelocity[0] > 0)
+            {
+                Enemy.transform.localRotation = Quaternion.Euler(0, 180, 0);
+            }
+            else
+            {
+                Enemy.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            }
 
-        if(collidedwPlayer)
+
+
+
+            if (range >= 10f)
+            {
+                speed = 10f;
+            }
+            else if (range < 10f)
+            {
+                speed = 4f;
+            }
+
+            if (collidedwPlayer)
+            {
+                Player.GetComponent<Health>().ChangeHealth(-damagePerSecond * Time.fixedDeltaTime);
+            }
+        } catch
         {
-            Player.GetComponent<Health>().ChangeHealth(-damagePerSecond * Time.fixedDeltaTime);  
+            Debug.Log("Error");
         }
     }
 }
