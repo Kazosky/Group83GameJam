@@ -44,6 +44,8 @@ public class Projectile : MonoBehaviour
             HealthChangeOverTime healthChangeOverTime = enemy.AddComponent<HealthChangeOverTime>();
             healthChangeOverTime.healthChangePerSecond = -damagePerSecond;
 
+            enemy.GetComponent<Rigidbody2D>().AddForce(this.GetComponent<Rigidbody2D>().velocity * this.GetComponent<Rigidbody2D>().mass, ForceMode2D.Impulse);
+
             Destroy(this.gameObject);
         }
     }
