@@ -14,6 +14,7 @@ public class NewBehaviourScript : MonoBehaviour
     public float speed = 20f;
     public float maxForce = 20f;
     public bool collidedwPlayer;
+    public float damagePerSecond = 10f;
 
     void Start()
     {
@@ -51,5 +52,10 @@ public class NewBehaviourScript : MonoBehaviour
         {
             speed = 4f;
         }   
+
+        if(collidedwPlayer)
+        {
+            Player.GetComponent<Health>().ChangeHealth(-damagePerSecond * Time.fixedDeltaTime);  
+        }
     }
 }
