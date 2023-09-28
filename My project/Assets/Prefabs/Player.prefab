@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4916396526496727857}
   - component: {fileID: 8127993345365292810}
   - component: {fileID: 5380888786772410669}
+  - component: {fileID: 4145863357024029011}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -177,6 +178,7 @@ MonoBehaviour:
   maxForce: 50000
   projectilePrefab: {fileID: 4089483482003853695, guid: 3643c72198f51b140a33a484d87424e2, type: 3}
   fireForce: 2000
+  fireCooldown: 0.2
 --- !u!114 &5380888786772410669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +193,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   health: 0
+--- !u!114 &4145863357024029011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6496586426196079721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f9063508cf191b448ee4b3ca0463010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthChangePerSecond: 2
 --- !u!1001 &3043758250460906562
 PrefabInstance:
   m_ObjectHideFlags: 0
