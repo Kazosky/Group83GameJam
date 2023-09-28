@@ -11,7 +11,6 @@ public class PauseMenu : MonoBehaviour
     public GameObject upgradesMenuUI;
 
     // Upgrade screen parts
-
     public TMP_Text upgradePoints;
 
     // Upgrade 1:
@@ -32,11 +31,13 @@ public class PauseMenu : MonoBehaviour
     // Wave UI
     public TMP_Text waveText;
 
-    // Scene name to check if the main game is active. Change if scene name is changed. \\
+    // Scene name to check if the main game is active. Change if scene name is changed. 
     public static string sceneName = "SampleScene";
 
     void Start()
     {
+        // Ran at the start - hides everything that isn't needed to be shown to begin with.
+
         pauseMenuUI.SetActive(false);
         upgradesMenuUI.SetActive(false);
         slider1.enabled = false;
@@ -62,6 +63,8 @@ public class PauseMenu : MonoBehaviour
                 }
             }
 
+            // Checks if the wave text is not active and the upgrades menu isn't active,
+            // if conditions are met it sets the waves to visable.
             if (!waveText.IsActive() && !upgradesMenuUI.activeSelf)
             {
                 ShowWaves();
@@ -73,6 +76,8 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        // Resumes the game.
+
         pauseMenuUI.SetActive(false);
         upgradesMenuUI.SetActive(false);
         ShowWaves();
@@ -82,6 +87,8 @@ public class PauseMenu : MonoBehaviour
 
     void Pause()
     {
+        // Pauses the game.
+
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
@@ -89,6 +96,8 @@ public class PauseMenu : MonoBehaviour
 
     public void loadMenu()
     {
+        // Loads the main menu.
+
         Time.timeScale = 1f;
         GameIsPaused = false;
         SceneManager.LoadScene("Menu");
@@ -97,6 +106,8 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        // Quits the game.
+
         Debug.Log("Quit");
         Application.Quit();
     }
@@ -106,11 +117,15 @@ public class PauseMenu : MonoBehaviour
 
     public void ShowWaves()
     {
+        // Shows the waves text.
+
         waveText.enabled = true;
     }
 
     public void RemoveWaves()
     {
+        // Hides the waves text.
+
         waveText.enabled = false;
     }
 
@@ -127,11 +142,12 @@ public class PauseMenu : MonoBehaviour
     }
 
 
-    // Update upgrades \\
-    // Changes the upgrade slider alongside the text beside the number \\
+    // upgrades \\
 
     public void UpgradeChange(int upgradeID )
     {
+        // Changes the upgrade slider alongside the text beside the number 
+
         if (upgradeID == 1)
         {
             slider1.value = slider1.value + 10 ;
@@ -151,8 +167,8 @@ public class PauseMenu : MonoBehaviour
 
     public void updateUpgrade( int buttonID )
     {
-
-        // Get current points avaliable 
+        // Makes sure the player has enough points avaliable to update then changes 
+        // the slider and avaliable points text displayed to the user.
 
         int currentPointsAvaliable = getUpgradePointsAvaliable();
         if (currentPointsAvaliable > 9)
@@ -165,10 +181,9 @@ public class PauseMenu : MonoBehaviour
 
     public int getUpgradePointsAvaliable()
     {
-        // Get current points avaliable and returns an int. \\
+        // Get current points avaliable and returns an int. 
 
         int currentPointsAvaliable;
-        // Gets the last 2 digits of the wave to reduce the amount of selection required.
         int.TryParse(upgradePoints.text.Substring(upgradePoints.text.Length - 2).ToString(), out currentPointsAvaliable);
 
         return currentPointsAvaliable;
@@ -181,8 +196,6 @@ public class PauseMenu : MonoBehaviour
 
         int currentPointsAvaliable;
         int upgradeNewNumber;
-
-        // Gets the last 2 digits of the wave to reduce the amount of selection required.
         int.TryParse(upgradePoints.text.Substring(upgradePoints.text.Length - 2).ToString(), out currentPointsAvaliable);
 
         if (addition)
